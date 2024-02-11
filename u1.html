@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask for a Date</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative; /* Added position relative */
+    }
+    #container {
+        text-align: center;
+    }
+    h1 {
+        color: #333;
+    }
+    button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    button:hover {
+        transform: scale(1.1);
+    }
+    #message {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        display: none; /* Initially hidden */
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Would you like to go on a date?</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+</div>
+
+<div id="message"></div> <!-- Added message container -->
+
+<script>
+    const yesButton = document.getElementById('yesButton');
+    const message = document.getElementById('message');
+    
+    yesButton.addEventListener('click', function() {
+        message.textContent = "Let's meet!";
+        message.style.display = 'block'; // Display message
+    });
+
+    const noButton = document.getElementById('noButton');
+    noButton.addEventListener('mouseenter', function() {
+        const randomX = Math.random() * (window.innerWidth - noButton.clientWidth);
+        const randomY = Math.random() * (window.innerHeight - noButton.clientHeight);
+        noButton.style.position = 'absolute';
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    });
+</script>
+
+</body>
+</html>
